@@ -1,0 +1,70 @@
+{
+  "name": "NorthBuild - Error Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6137f694-8193-4f2b-83d0-d5506501ef3d",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "fromEmail": "alerts@northbuild.test",
+        "toEmail": "admin@northbuild.test",
+        "subject": "=n8n error in {{ $json.workflow.name }}",
+        "emailFormat": "text",
+        "text": "=A workflow failed.\n\nWorkflow: {{ $json.workflow.name }}\nFailed node: {{ $json.execution.lastNodeExecuted }}\nError: {{ $json.execution.error.message }}\nExecution link: {{ $json.execution.url }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "77cf808f-4147-48eb-836b-c0be3820b557",
+      "name": "Send an Email",
+      "webhookId": "99c8b6bf-1448-4306-8d34-43f1d8d99798",
+      "credentials": {
+        "smtp": {
+          "id": "oEDLxbJ0P2DFRux7",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3d68b398-6fbb-4a3d-a83d-945119692a56",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "77e79e937f2498ea31f072f9ff39621a531f73fe2d9ba75c1f3d9643ded70fad"
+  },
+  "nodeGroups": [],
+  "id": "gW1i1DQXjOWkWU9G",
+  "tags": []
+}
