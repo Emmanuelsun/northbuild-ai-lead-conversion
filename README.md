@@ -48,4 +48,5 @@ Simulated client. Thirty synthetic leads with labels written with AI assistance.
 
 ## Case study
 
-[Add the link to your case study here]
+https://github.com/Emmanuelsun/northbuild-ai-lead-conversion/blob/main/northbuild-case-study.pdf.pdf
+
